@@ -21,6 +21,12 @@ if (uri) {
 //getting data from public
 app.use(express.json(), cors());
 
+import userRouter from './modules/User/UserRoutes'
+app.use('/user', userRouter)
+
+import recipeRouter from './modules/Recipe/RecipeRoutes'
+app.use('/recipe' , recipeRouter)
+
 app.listen(5000, () => {
     console.log("server listen on port 5000");
   });
