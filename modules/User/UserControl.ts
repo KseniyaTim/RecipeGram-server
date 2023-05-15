@@ -23,6 +23,7 @@ export const addUser = async (req: any, res: any) => {
       firstName: user.firstName,
       lastName: user.lastName,
       age: user.age,
+      img: user.img,
       email: user.email,
       password: user.password,
     });
