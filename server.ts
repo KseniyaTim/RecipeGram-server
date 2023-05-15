@@ -4,6 +4,9 @@ const cors = require('cors')
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 dotenv.config();
+import cookieParser from 'cookie-parser';
+
+app.use(cookieParser())
 
 //connecting DB//
 const uri: string | undefined = process.env.MONGODB_URI;
@@ -19,12 +22,13 @@ if (uri) {
 }
 
 //getting data from public
-app.use(express.json(), cors());
+app.use( express.json(), cors());
 
 import userRouter from './modules/User/UserRoutes'
 app.use('/user', userRouter)
 
 import recipeRouter from './modules/Recipe/RecipeRoutes'
+
 app.use('/recipe' , recipeRouter)
 
 app.listen(5000, () => {
