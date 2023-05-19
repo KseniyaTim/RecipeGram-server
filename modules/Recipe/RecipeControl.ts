@@ -20,8 +20,7 @@ export const addRecipe = async (req: any, res: any) => {
       name: recipe.name,
       img: recipe.img,
     });
-    console.log(recipe)
-    console.log(recipeDB)
+
     return recipeDB;
   } catch (error: any) {
     console.error(error);
