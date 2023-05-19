@@ -1,12 +1,12 @@
 import express from "express";
 const app = express();
-const cors = require('cors')
+const cors = require("cors");
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 dotenv.config();
-import cookieParser from 'cookie-parser';
+import cookieParser from "cookie-parser";
 
-app.use(cookieParser())
+app.use(cookieParser());
 
 //connecting DB//
 const uri: string | undefined = process.env.MONGODB_URI;
@@ -22,15 +22,15 @@ if (uri) {
 }
 
 //getting data from public
-app.use( express.json(), cors());
+app.use(express.json(), cors());
 
-import userRouter from './modules/User/UserRoutes'
-app.use('/user', userRouter)
+import userRouter from "./modules/User/UserRoutes";
+app.use("/user", userRouter);
 
-import recipeRouter from './modules/Recipe/RecipeRoutes'
+import recipeRouter from "./modules/Recipe/RecipeRoutes";
 
-app.use('/recipe' , recipeRouter)
+app.use("/recipe", recipeRouter);
 
-app.listen(5000, () => {
-    console.log("server listen on port 5000");
-  });
+app.listen(4000, () => {
+  console.log("server listen on port 4000");
+});

@@ -11,18 +11,18 @@ export const getRecipes = async (req: any, res: any) => {
 };
 
 export const addRecipe = async (req: any, res: any) => {
-
-    const {recipe} = req.body
-    const recipeDB = await RecipeModel.create({
-        name: recipe.name,
-        imgURL: recipe.imgURL,
-        userId: recipe.userId,
-        likes: recipe.likes,
-        ingredients: recipe.ingredients,
-        instructins: recipe.instructins
-    })
   try {
-    console.log(req.body);
+    const  recipe  = req.body;
+    const recipeDB = await RecipeModel.create({
+      userName: recipe.userName,
+      ingredients: recipe.ingredients,
+      instructions: recipe.instructions,
+      name: recipe.name,
+      img: recipe.img,
+    });
+    console.log(recipe)
+    console.log(recipeDB)
+    return recipeDB;
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

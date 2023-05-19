@@ -2,20 +2,20 @@ import mongoose, { Schema } from "mongoose";
 
 export interface IRecipe {
   name: string;
-  imgURL: string;
-  user: string;
+  img: string;
+  userName: string;
   likes: number;
   ingredients: string[];
-  instructins: string[];
+  instructions: string[];
 }
 
 export const RecipeSchema = new Schema({
   name: String,
-  imgURL: String,
-  userId: String,
+  img: String,
+  userName: String,
   likes: Number,
   ingredients: [String],
-  instructins: [String],
+  instructions: [String],
 });
 
 const RecipeModel = mongoose.model("recipe", RecipeSchema);
